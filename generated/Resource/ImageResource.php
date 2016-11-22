@@ -67,6 +67,7 @@ class ImageResource extends Resource
      *     @var int $buildargs Total memory (memory + swap), -1 to disable swap.
      *     @var string $Content-type  Set to 'application/tar'.
      *     @var string $X-Registry-Config A base64-url-safe-encoded Registry Auth Config JSON object
+     *     @var string $labels A json encoded labels map.
      * }
      *
      * @param string $fetch Fetch mode (object or response)
@@ -91,6 +92,7 @@ class ImageResource extends Resource
         $queryParam->setDefault('cpuperiod', null);
         $queryParam->setDefault('cpuquota', null);
         $queryParam->setDefault('buildargs', null);
+        $queryParam->setDefault('labels', null);
         $queryParam->setDefault('Content-type', 'application/tar');
         $queryParam->setHeaderParameters(['Content-type']);
         $queryParam->setDefault('X-Registry-Config', null);

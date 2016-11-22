@@ -29,7 +29,9 @@ class ImageManagerTest extends TestCase
         $contextBuilder->add('/test', 'test file content');
 
         $context = $contextBuilder->getContext();
-        $buildStream = $this->getManager()->build($context->read(), ['t' => 'test-image'], ImageManager::FETCH_STREAM);
+        $buildStream = $this->getManager()->build($context->read(), ['t' => 'test-image',
+            'labels' => json_encode(['test-label' => 'yes'])
+        ], ImageManager::FETCH_STREAM);
 
         $this->assertInstanceOf('Docker\Stream\BuildStream', $buildStream);
 
